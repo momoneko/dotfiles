@@ -21,3 +21,5 @@ for file in $VIM_DOT
 do
     ln -s $file ~/.$(basename $file)
 done
+
+ln -s $DIR/inputrc ~/.inputrc

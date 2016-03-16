@@ -129,6 +129,4 @@ if hash thefuck 2>/dev/null; then
     eval "$(thefuck --alias)"
 fi
 
-export IGNOREEOF=1
-
 fortune | lolcat

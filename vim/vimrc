@@ -113,9 +113,6 @@ inoremap qq <Esc>
 " switch tabs more easily
 :nmap <tab> gt
 :nmap <s-tab> gT
-" insert newline without going into insert mode
-:nnoremap o o<Esc>
-:nnoremap O O<Esc>
 
 
 

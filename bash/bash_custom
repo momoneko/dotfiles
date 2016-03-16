@@ -3,8 +3,9 @@ if [ -f ~/Scripts/liquidprompt/liquidprompt ]; then
     [[ $- = *i* ]] && source ~/Scripts/liquidprompt/liquidprompt
 fi
 
-if [ -f ~/Scripts/z/z.sh ]; then
-    .   ~/Scripts/z/z.sh 
+
+if hash fasd 2>/dev/null; then
+    eval "$(fasd --init auto)"
 fi
 
 if [ -f ~/Scripts/functions.sh ]; then

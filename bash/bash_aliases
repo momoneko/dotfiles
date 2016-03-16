@@ -1,0 +1,23 @@
+# Aliases go here
+alias freem='free -m'
+
+alias ..="cd .."
+alias ..2="cd ../.."
+alias ..3="cd ../../.."
+alias ..4="cd ../../../.."
+alias ..5="cd ../../../../.."
+
+alias eche="echo -e"
+alias dh="du -sh"
+
+#enable aliases to be sudoed
+alias sudo='sudo '
+
+alias sshpass="ssh -o PubkeyAuthentication=no"
+alias scppass='scp -o PubKeyAuthentication=no'
+
+alias xclip="xclip -selection clipboard"
+
+alias ptpython="ptpython --vi"
+
+alias tmux="tmux -2"

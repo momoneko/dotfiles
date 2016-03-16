@@ -1,0 +1,11 @@
+SCRIPT_PATH="${BASH_SOURCE[0]}"
+DIR=$(cd -P "$(dirname $SCRIPT_PATH)" && pwd )
+echo $DIR
+
+BASH_DOT=$DIR/bash/*
+
+for file in $BASH_DOT
+do
+    ln -s $file ~/.$(basename $file)
+
+done

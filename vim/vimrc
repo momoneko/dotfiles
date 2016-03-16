@@ -1,0 +1,201 @@
+scriptencoding utf-8
+set encoding=utf-8
+" Hello
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+"
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+Plugin 'terryma/vim-multiple-cursors'
+
+"Plugin 'klen/python-mode'
+" YouCompleteME
+" Plugin 'Valloric/YouCompleteMe'
+
+" gocode plugin
+Plugin 'nsf/gocode', {'rtp': 'vim/'}
+
+"lightline
+Plugin 'itchyny/lightline.vim'
+
+" git viewer yay!
+Plugin 'tpope/vim-fugitive.git'
+
+" ultisnips
+Plugin 'SirVer/ultisnips.git'
+" Narrow Regions - allows editing without screwing up your file
+Plugin 'chrisbra/NrrwRgn.git'
+" Go to directory in Tmux
+" Plugin 'justinmk/vim-gtfo.git'
+" vim surrond
+Plugin 'tpope/vim-surround.git'
+" fuzzy searching with ctrlP
+Plugin 'kien/ctrlp.vim'
+
+" show marks for git differences
+Plugin 'airblade/vim-gitgutter'
+" autocomment stuff
+Plugin 'scrooloose/nerdcommenter.git'
+
+
+" snippets for stuff
+Bundle 'honza/vim-snippets'
+
+" markdown stuff. Sort out later
+"!Plugin 'plasticboy/vim-markdown'
+
+" vim colorschemes
+Plugin 'flazz/vim-colorschemes'
+Bundle "daylerees/colour-schemes", { "rtp": "vim/" }
+
+" flake8 for python
+Plugin 'nvie/vim-flake8'
+
+" multisearch
+Bundle 'dyng/ctrlsf.vim.git'
+
+
+
+" plugin from http://vim-scripts.org/vim/scripts.html
+"Plugin 'L9'
+" Git plugin not hosted on GitHub
+"Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+"Plugin 'file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Avoid a name conflict with L9
+"Plugin 'user/L9', {'name': 'newL9'}
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+
+" Mappings
+" set qq  as escape
+inoremap qq <Esc>
+" highlight last inserted text
+:nnoremap gV '[v`]
+" disable arrow keys
+:inoremap <Up> <nop>
+:inoremap <Down> <nop>
+:inoremap <Left> <nop>
+:inoremap <Right> <nop>
+" enable visual line movements
+:nnoremap j gj
+:nnoremap k gk
+:nnoremap gj j
+:nnoremap gk k
+" switch tabs more easily
+:nmap <tab> gt
+:nmap <s-tab> gT
+" insert newline without going into insert mode
+:nnoremap o o<Esc>
+:nnoremap O O<Esc>
+
+
+
+" look and feel
+:set colorcolumn=80
+:set laststatus=2
+if !has('gui_running')
+  set t_Co=256
+  set t_ut=
+endif
+:let g:lightline = {
+    \ 'colorscheme': 'wombat',
+    \ }
+:syntax enable
+:set tabstop=4 shiftwidth=4 expandtab
+" cool line numbering
+:set number
+":set relativenumber
+nnoremap rtl :set relativenumber!<CR>
+
+:colorscheme iceberg
+:hi MatchParen ctermbg=67 
+:highlight NonText ctermbg=none
+:highlight Normal  ctermbg=none
+" show me this when I have unwanted characters
+exec "set listchars=tab:\u257c\u23e5,trail:\u02F3"
+:set list
+
+:highlight SpecialKey ctermfg=240   
+:set wildmenu " visual autocomplete for command menu
+:set wildmode=full
+:set showcmd " show what I typed in normal mode
+:set showmatch " show matching brackets
+":set showbreak=<> " will put <> before wrapped lines
+:set wrap linebreak nolist
+:set hlsearch " highlight search matches
+" change highlight color for search matches
+:hi Search ctermbg=23 ctermfg=154
+:hi Search term=bold
+
+" completion menu colors
+:highlight Pmenu ctermbg=23 ctermfg=7
+
+" behaviour options
+:let mapleader=","
+:set autoindent
+
+" j - remove comment leader when joining lines
+" r - comment new line if current line is commented
+:set formatoptions+=rj
+
+" this is one line
+
+" notify if file change while editing
+:set autoread
+
+" search with smartcase
+:set ignorecase
+:set smartcase
+
+" set to split below and to the right
+:set splitbelow
+:set splitright
+
+" y, d, p will all use the plus register (copy/paste from system clipboard)
+" :set clipboard=unnamedplus
+" ycm disable tap
+:let g:ycm_key_list_select_completion=[]
+:let g:ycm_key_list_previous_completion=[]
+
+
+" autodisappear docs
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+"vim markdown
+"let g:vim_markdown_folding_disabled=1
+
+
+" Abbreviations
+:abbreviate envpy #!/usr/bin/env python
+
+

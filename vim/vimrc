@@ -23,8 +23,11 @@ Plugin 'terryma/vim-multiple-cursors'
 " YouCompleteME
 " Plugin 'Valloric/YouCompleteMe'
 
+" Jedi autocompletion
+Plugin 'davidhalter/jedi-vim'
+
 " gocode plugin
-Plugin 'nsf/gocode', {'rtp': 'vim/'}
+" Plugin 'nsf/gocode', {'rtp': 'vim/'}
 
 "lightline
 Plugin 'itchyny/lightline.vim'

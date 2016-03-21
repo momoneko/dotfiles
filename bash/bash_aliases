@@ -33,3 +33,13 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 # too lazy to add xflux to PATH
 alias xflux='~/Downloads/xflux -k 2400 -l 47 -g 28.91'
+
+# set up chime for pomodoro simulation
+export CHIME_PATH="$HOME/Dropbox/chime.wav"
+export POMODORO_TIME=$[ 25*60 ] # pomodoro time frame
+echo $POMODORO_TIME
+if [ -f $CHIME_PATH ]; then
+    alias pomodoro='nohup bash -c "sleep $POMODORO_TIME; aplay $CHIME_PATH" 2>&1 > /dev/null &'
+else
+    alias pomodoro="echo No chime sound on $CHIME_PATH"
+fi

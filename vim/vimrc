@@ -197,5 +197,6 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " Abbreviations
 :abbreviate envpy #!/usr/bin/env python
+:abbreviate idebug import ipdb; ipdb.set_trace()
 
 

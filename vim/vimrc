@@ -162,7 +162,16 @@ exec "set listchars=tab:\u257c\u23e5,trail:\u02F3"
 :highlight Pmenu ctermbg=23 ctermfg=7
 
 " behaviour options
-:let mapleader=","
+:let mapleader="\<Space>"
+" yank/delete/put to/from system clipboard
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>y "+y
+nmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
 :set autoindent
 
 " j - remove comment leader when joining lines

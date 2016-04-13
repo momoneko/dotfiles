@@ -49,7 +49,7 @@ Plugin 'kien/ctrlp.vim'
 " show marks for git differences
 Plugin 'airblade/vim-gitgutter'
 " autocomment stuff
-Plugin 'scrooloose/nerdcommenter.git'
+Plugin 'tpope/vim-commentary'
 
 
 " snippets for stuff

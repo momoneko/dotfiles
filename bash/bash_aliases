@@ -45,3 +45,4 @@ if [ -f $CHIME_PATH ]; then
 else
     alias pomodoro="echo No chime sound on $CHIME_PATH"
 fi
+alias showcert='openssl x509 -noout -text -in'

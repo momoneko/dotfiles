@@ -19,15 +19,8 @@ Plugin 'gmarik/Vundle.vim'
 " plugin on GitHub repo
 Plugin 'terryma/vim-multiple-cursors'
 
-"Plugin 'klen/python-mode'
-" YouCompleteME
-" Plugin 'Valloric/YouCompleteMe'
-
 " Jedi autocompletion
 Plugin 'davidhalter/jedi-vim'
-
-" gocode plugin
-" Plugin 'nsf/gocode', {'rtp': 'vim/'}
 
 "lightline
 Plugin 'itchyny/lightline.vim'
@@ -39,8 +32,7 @@ Plugin 'tpope/vim-fugitive.git'
 Plugin 'SirVer/ultisnips.git'
 " Narrow Regions - allows editing without screwing up your file
 Plugin 'chrisbra/NrrwRgn.git'
-" Go to directory in Tmux
-" Plugin 'justinmk/vim-gtfo.git'
+
 " vim surrond
 Plugin 'tpope/vim-surround.git'
 " fuzzy searching with ctrlP
@@ -50,13 +42,11 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
 " autocomment stuff
 Plugin 'tpope/vim-commentary'
-
+" directory stuff
+Plugin 'tpope/vim-vinegar'
 
 " snippets for stuff
 Bundle 'honza/vim-snippets'
-
-" markdown stuff. Sort out later
-"!Plugin 'plasticboy/vim-markdown'
 
 " vim colorschemes
 Plugin 'flazz/vim-colorschemes'

@@ -123,6 +123,8 @@ endif
     \ }
 :syntax enable
 :set tabstop=4 shiftwidth=4 expandtab
+" jump to multiple of tabstop
+:set shiftround
 " cool line numbering
 :set number
 ":set relativenumber
@@ -173,6 +175,9 @@ vmap <Leader>P "+P
 " notify if file change while editing
 :set autoread
 
+" netrw tree style
+:let g:netrw_liststyle = 3
+
 " search with smartcase
 :set ignorecase
 :set smartcase
@@ -197,7 +202,9 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 
 " Abbreviations
-:abbreviate envpy #!/usr/bin/env python
+:abbreviate pyenv #!/usr/bin/env python
 :abbreviate idebug import ipdb; ipdb.set_trace()
+:abbreviate ifnm if __name__ == '__main__':<CR>
 
-
+" Jedi settings
+let g:jedi#smart_auto_mappings = 0

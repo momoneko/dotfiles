@@ -16,7 +16,7 @@ alias sudo='sudo '
 alias sshpass="ssh -o PubkeyAuthentication=no"
 alias scppass='scp -o PubKeyAuthentication=no'
 
-alias xclip="xclip -selection clipboard"
+alias xclip="pbcopy"
 
 alias ptpython="ptpython --vi"
 

@@ -1,0 +1,33 @@
+export GOPATH=$HOME/go
+
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=10000
+HISTFILESIZE=20000
+
+# make ls more colourful
+export CLICOLOR=1
+
+#activate bash completion
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi
+
+export EDITOR=vim
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+if [ -f ~/.bash_custom ]; then
+    . ~/.bash_custom
+fi
+
+
+export PATH=$PATH:/Users/dmelenteanu/go/bin/

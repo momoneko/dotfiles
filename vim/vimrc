@@ -29,7 +29,7 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'tpope/vim-fugitive.git'
 
 " ultisnips
-Plugin 'SirVer/ultisnips.git'
+" Plugin 'SirVer/ultisnips.git'
 " Narrow Regions - allows editing without screwing up your file
 Plugin 'chrisbra/NrrwRgn.git'
 
@@ -55,8 +55,13 @@ Bundle "daylerees/colour-schemes", { "rtp": "vim/" }
 " flake8 for python
 Plugin 'nvie/vim-flake8'
 
+" go plugin
+Plugin 'fatih/vim-go'
+"
 " multisearch
 Bundle 'dyng/ctrlsf.vim.git'
+" undo tree
+Plugin 'mbbill/undotree'
 
 
 
@@ -166,7 +171,13 @@ vmap <Leader>p "+p
 vmap <Leader>P "+P
 :set autoindent
 
-" j - remove comment leader when joining lines
+" backspace works as expected
+" indent: delete autoindents
+" eol: can delete line breaks
+" start: can delete what I didn't insert this insert mode session
+:set backspace=indent,eol,start
+
+" j - remove comment
 " r - comment new line if current line is commented
 :set formatoptions+=rj
 
@@ -174,6 +185,8 @@ vmap <Leader>P "+P
 
 " notify if file change while editing
 :set autoread
+" save file if you call :make. Used by vim-go
+:set autowrite
 
 " netrw tree style
 :let g:netrw_liststyle = 3
@@ -191,6 +204,7 @@ vmap <Leader>P "+P
 " ycm disable tap
 :let g:ycm_key_list_select_completion=[]
 :let g:ycm_key_list_previous_completion=[]
+:nmap <Leader>f <Plug>CtrlSFPrompt
 
 
 " autodisappear docs
@@ -208,3 +222,40 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " Jedi settings
 let g:jedi#smart_auto_mappings = 0
+
+
+" golang settings
+" show type info if cursor is on identifier
+" let g:go_auto_type_info = 1
+" commands
+autocmd FileType go nmap <leader>t <Plug>(go-test)
+" run test coverage checks. Remove highlights when rerun
+autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+" open alternate files in many ways
+autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#cmd#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+autocmd FileType go nmap <leader>i :GoImports<CR>
+autocmd FileType go nmap <leader>r :GoReferrers<CR>
+autocmd FileType go nmap <leader>d :GoDescribe<CR>
+autocmd FileType go nmap <Leader>I <Plug>CtrlSFPrompt
+" automatically add import statements
+let g:go_fmt_command = "goimports"
+
+" syntax highlighting
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_auto_sameids = 1

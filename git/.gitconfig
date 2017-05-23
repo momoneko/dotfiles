@@ -1,0 +1,13 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = Dumitru Melenteanu
+	email = dmelenteanu@gmail.com
+[alias]
+	ss = status --short
+	dif = diff --cached
+	treelog = log --oneline --graph --all --decorate --abbrev-commit
+	fall = fetch --all
+    jira-log = "!f() { A=$1; B=${2-origin/master}; git fetch origin; git log $A..$B --pretty=format:'%H%n%B%x0C' | tr -d \"\\r\" | perl -e '$/ = \"\\f\"; print \"||SHA||Summary||Issue ID||\\n\"; while(<>) { /\\s*(\\w+)\\s+([^\\n]+).*jira: ([^\\n]+)/si; print \"| $1 | $2 | $3 |\\n\"};';}; f"
+[core]
+	excludesfile = ~/.gitignore_global
